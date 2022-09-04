@@ -26,8 +26,7 @@ export default function Leaderboard(props) {
   const leaderboardInfo = useSelector((store) => store.leaderboard.leaderboard);
   console.log(leaderboardInfo);
   const filteredLeaderboard = leaderboardInfo.filter(
-    (item) =>
-      item.category === Number(category) && item.difficulty === difficulty
+    (item) => item.category === category && item.difficulty === difficulty
   );
   console.log(filteredLeaderboard);
 
@@ -47,7 +46,7 @@ export default function Leaderboard(props) {
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
-                {row.name}
+                {row.user}
               </TableCell>
               <TableCell component="th" scope="row">
                 {row.score}

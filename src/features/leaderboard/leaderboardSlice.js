@@ -1,14 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createData } from "../../components/Leaderboard";
 
+// [
+//     createData("Frozen yoghurt", 159, 21, "easy"),
+//     createData("Ice cream sandwich", 237, 9, "easy"),
+//     createData("Eclair", 262, 18, "hard"),
+//     createData("Cupcake", 305, 22, "medium"),
+//     createData("Gingerbread", 356, 12, "hard"),
+//   ]
+
 const initialState = {
-  leaderboard: [
-    createData("Frozen yoghurt", 159, 21, "easy"),
-    createData("Ice cream sandwich", 237, 9, "easy"),
-    createData("Eclair", 262, 18, "hard"),
-    createData("Cupcake", 305, 22, "medium"),
-    createData("Gingerbread", 356, 12, "hard"),
-  ],
+  leaderboard: [],
   status: "idle",
 };
 
@@ -19,7 +21,7 @@ export const leaderboardSlice = createSlice({
   reducers: {
     addScore: (state, action) => {
       console.log(action.payload);
-      state.leaderboard.push = action.payload;
+      state.leaderboard.push(action.payload);
     },
   },
   // The `extraReducers` field lets the slice handle actions defined elsewhere,

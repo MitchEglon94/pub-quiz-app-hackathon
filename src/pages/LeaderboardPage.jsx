@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Leaderboard from "../components/Leaderboard";
 
 function LeaderboardPage() {
-  const [category, setCategory] = useState(9);
+  const [category, setCategory] = useState("9");
   const [difficulty, setDifficulty] = useState("easy");
 
   const categoryHandler = (event) => {

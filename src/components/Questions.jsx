@@ -12,14 +12,22 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { updateUserScore } from "../features/user/userSlice";
+import { addScore } from "../features/leaderboard/leaderboardSlice";
+import { useNavigate } from "react-router-dom";
 
 function Questions() {
-  const [category, setCategory] = useState(9);
-  const [difficulty, setDifficulty] = useState("easy");
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [questionlist, setQuestionList] = useState([]);
   const [score, setScore] = useState(0);
   const [incorrect, setIncorrect] = useState(0);
   const [questionIndex, setQuestionIndex] = useState(0);
+  const user = useSelector((store) => store.user.user);
+  console.log(user);
+  const category = user.category;
+  const difficulty = user.difficulty;
 
   const getQuestion = async () => {
     try {
@@ -34,7 +42,19 @@ function Questions() {
     }
   };
 
-  const scoreSubmission = () => {};
+  //   const addScoreToLeaderboard = () => {
+
+  //   };
+
+  const scoreSubmission = () => {
+    dispatch(addScore(user));
+    // addScoreToLeaderboard();
+    navigate("/leaderboard");
+  };
+
+  useEffect(() => {
+    dispatch(updateUserScore(score));
+  }, [score]);
 
   useEffect(() => {
     getQuestion();

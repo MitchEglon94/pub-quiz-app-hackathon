@@ -41,8 +41,15 @@
 /*********  DONT CHANGE  ***********/
 /***********************************/
 
+body {
+  /* background-color: rgb(47, 47, 47); */
+  box-sizing: border-box;
+}
+
 .question-section-container {
   width: 100%;
+  color: white;
+  font-size: 20px;
 }
 
 .question-container {
@@ -52,15 +59,83 @@
   gap: 9px;
   /* margin: 9px; */
   overflow: hidden;
+  margin-block-start: 5%;
 }
 
 .question-card {
-  border: 1px solid;
+  color: white;
+
   min-width: 100%;
   max-width: 100%;
-  padding: 10px;
+  padding-bottom: 50px;
+  background-color: #373c46;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.question-card button {
+  width: 80%;
+  padding: 10px 0;
+  border: none;
+  border-radius: 5px;
 }
 
 /***********************************/
 /***********************************/
 /***********************************/
+
+body {
+  background-image: url("https://banner2.cleanpng.com/20180219/sse/kisspng-root-beer-beer-glassware-clip-art-beer-cartoon-5a8aca9cb33286.153064341519045276734.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% -80%;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+h1:hover {
+  animation-name: rainbow;
+  animation-duration: 3000ms;
+}
+@keyframes rainbow {
+  0% {
+    color: yellow;
+  }
+  25% {
+    color: green;
+  }
+  50% {
+    color: blue;
+  }
+  75% {
+    color: red;
+  }
+}
+h2:hover {
+  animation-name: rainbow;
+  animation-duration: 3000ms;
+}
+@keyframes rainbow {
+  0% {
+    color: yellow;
+  }
+  25% {
+    color: green;
+  }
+  50% {
+    color: blue;
+  }
+  75% {
+    color: red;
+  }
+}
+
+.form {
+  border: 1px solid black;
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+}
