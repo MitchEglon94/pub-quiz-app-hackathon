@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+/***********************************/
+/*********  DONT CHANGE  ***********/
+/***********************************/
+
+.question-section-container {
+  width: 100%;
+}
+
+.question-container {
+  display: flex;
+  min-width: 100%;
+  max-width: 100%;
+  gap: 9px;
+  /* margin: 9px; */
+  overflow: hidden;
+}
+
+.question-card {
+  border: 1px solid;
+  min-width: 100%;
+  max-width: 100%;
+  padding: 10px;
+}
+
+/***********************************/
+/***********************************/
+/***********************************/

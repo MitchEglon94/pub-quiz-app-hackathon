@@ -8,6 +8,8 @@ import { PersistGate } from "redux-persist/integration/react";
 import { store } from "./app/store";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import LeaderboardPage from "./pages/LeaderboardPage";
+import Questionpage from "./pages/QuestionPage";
+import QuestionPage2 from "./pages/QuestionPage2";
 
 let persistor = persistStore(store);
 
@@ -19,6 +21,7 @@ root.render(
         <Router>
           <Routes>
             <Route path="/" element={<App />}>
+              <Route path="quiz" element={<QuestionPage2 />} />
               <Route path="leaderboard" element={<LeaderboardPage />} />
             </Route>
           </Routes>
