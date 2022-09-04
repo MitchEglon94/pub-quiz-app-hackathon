@@ -8,8 +8,8 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useSelector, useDispatch } from "react-redux";
 
-export function createData(name, score, Category, Difficulty, Type) {
-  return { name, score, Category, Difficulty, Type };
+export function createData(name, score, category, difficulty) {
+  return { name, score, category, difficulty };
 }
 
 // const rows = [
@@ -21,8 +21,16 @@ export function createData(name, score, Category, Difficulty, Type) {
 // ];
 
 export default function Leaderboard(props) {
+  const { category, difficulty } = props;
+  console.log(category);
   const leaderboardInfo = useSelector((store) => store.leaderboard.leaderboard);
   console.log(leaderboardInfo);
+  const filteredLeaderboard = leaderboardInfo.filter(
+    (item) =>
+      item.category === Number(category) && item.difficulty === difficulty
+  );
+  console.log(filteredLeaderboard);
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ margin: "auto", maxWidth: 650 }} aria-label="simple table">
@@ -30,13 +38,10 @@ export default function Leaderboard(props) {
           <TableRow>
             <TableCell align="left">Name</TableCell>
             <TableCell align="left">Score</TableCell>
-            {/* <TableCell align="right">Category</TableCell>
-            <TableCell align="right">Difficulty</TableCell>
-            <TableCell align="right">Type</TableCell> */}
           </TableRow>
         </TableHead>
         <TableBody>
-          {leaderboardInfo.map((row) => (
+          {filteredLeaderboard.map((row) => (
             <TableRow
               key={row.name}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -47,10 +52,6 @@ export default function Leaderboard(props) {
               <TableCell component="th" scope="row">
                 {row.score}
               </TableCell>
-              {/* <TableCell align="right">{row.name}</TableCell> */}
-              {/* <TableCell align="right">{row.fat}</TableCell>
-              <TableCell align="right">{row.carbs}</TableCell>
-              <TableCell align="right">{row.protein}</TableCell> */}
             </TableRow>
           ))}
         </TableBody>

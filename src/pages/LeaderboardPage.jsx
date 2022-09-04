@@ -1,31 +1,36 @@
-// Copyright 2022 mitchelleglon
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
 import React, { useState } from "react";
 import Leaderboard from "../components/Leaderboard";
 
 function LeaderboardPage() {
-  const [category, setCategory] = useState("");
-  const [difficulty, setDifficulty] = useState("");
+  const [category, setCategory] = useState(9);
+  const [difficulty, setDifficulty] = useState("easy");
+
+  const categoryHandler = (event) => {
+    setCategory(event.target.value);
+  };
+  const difficultyHandler = (event) => {
+    setDifficulty(event.target.value);
+  };
   return (
     <div>
       <label for="category">Category</label>
-      <select value={category} id="category">
-        <option value={1}>General</option>
+      <select value={category} id="category" onChange={categoryHandler}>
+        <option selected="selected" value={9}>
+          General Knowledge
+        </option>
+        <option value={21}>Sport</option>
+        <option value={22}>Geography</option>
+        <option value={23}>History</option>
+        <option value={12}>Music</option>
+        <option value={18}>Computers</option>
       </select>
       <label for="difficulty">Difficulty</label>
-      <select value={difficulty} id="difficulty">
-        <option value={1}>Easy</option>
+      <select value={difficulty} id="difficulty" onChange={difficultyHandler}>
+        <option selected="selected" value={"easy"}>
+          Easy
+        </option>
+        <option value={"medium"}>Medium</option>
+        <option value={"hard"}>Hard</option>
       </select>
       <Leaderboard category={category} difficulty={difficulty} />
     </div>
