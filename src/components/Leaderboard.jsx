@@ -12,24 +12,24 @@ export function createData(name, score, Category, Difficulty, Type) {
   return { name, score, Category, Difficulty, Type };
 }
 
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
+// const rows = [
+//   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+//   createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+//   createData("Eclair", 262, 16.0, 24, 6.0),
+//   createData("Cupcake", 305, 3.7, 67, 4.3),
+//   createData("Gingerbread", 356, 16.0, 49, 3.9),
+// ];
 
-export default function Leaderboard() {
+export default function Leaderboard(props) {
   const leaderboardInfo = useSelector((store) => store.leaderboard.leaderboard);
   console.log(leaderboardInfo);
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ margin: "auto", maxWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell align="center">Name</TableCell>
-            <TableCell align="center">Score</TableCell>
+            <TableCell align="left">Name</TableCell>
+            <TableCell align="left">Score</TableCell>
             {/* <TableCell align="right">Category</TableCell>
             <TableCell align="right">Difficulty</TableCell>
             <TableCell align="right">Type</TableCell> */}

@@ -11,14 +11,23 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-import React from "react";
+import React, { useState } from "react";
 import Leaderboard from "../components/Leaderboard";
 
 function LeaderboardPage() {
+  const [category, setCategory] = useState("");
+  const [difficulty, setDifficulty] = useState("");
   return (
     <div>
-      LeaderboardPage
-      <Leaderboard />
+      <label for="category">Category</label>
+      <select value={category} id="category">
+        <option value={1}>General</option>
+      </select>
+      <label for="difficulty">Difficulty</label>
+      <select value={difficulty} id="difficulty">
+        <option value={1}>Easy</option>
+      </select>
+      <Leaderboard category={category} difficulty={difficulty} />
     </div>
   );
 }
