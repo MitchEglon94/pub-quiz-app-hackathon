@@ -4,12 +4,19 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+import { addUserInfo } from "../features/user/userSlice";
+import { useDispatch } from "react-redux/es/exports";
+
 const schema = yup.object().shape({
-  name: yup.string().required(),
+  user: yup.string().required(),
+  difficulty: yup.string().required(),
+  category: yup.string().required(),
 });
 
 const defaultValues = {
-  name: "",
+  user: "",
+  difficulty: "",
+  category: "",
 };
 
 function Inputs() {
@@ -21,17 +28,20 @@ function Inputs() {
 
   const { isDirty, isValid, isSubmitting, errors } = formState;
 
+  const dispatch = useDispatch();
+
   const submitFn = (input) => {
     console.log(input);
+    console.log("dispatch", dispatch(addUserInfo(input)));
   };
   return (
     <form onSubmit={handleSubmit(submitFn)}>
       <div>
-        <label htmlFor="name">Name: </label>
-        <input type="text" name="name" id="name" {...register("name")} />
-        {errors.name && (
-          <label htmlFor="name" role="alert" className="error">
-            {errors.name?.message}
+        <label htmlFor="user">Name: </label>
+        <input type="text" name="user" id="user" {...register("user")} />
+        {errors.user && (
+          <label htmlFor="user" role="alert" className="error">
+            {errors.user?.message}
           </label>
         )}
       </div>
