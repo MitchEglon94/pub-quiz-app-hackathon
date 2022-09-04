@@ -48,7 +48,7 @@ function Inputs() {
 
       <div>
         <label htmlFor="difficulty">Difficulty: </label>
-        <select name="difficulty" id="difficulty">
+        <select name="difficulty" id="difficulty" {...register("difficulty")}>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
@@ -57,7 +57,7 @@ function Inputs() {
 
       <div>
         <label htmlFor="category">Category: </label>
-        <select name="category" id="category">
+        <select name="category" id="category" {...register("category")}>
           <option value="9">General Knowledge</option>
           <option value="21">Sport</option>
           <option value="22">Geography</option>

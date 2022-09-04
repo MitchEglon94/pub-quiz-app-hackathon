@@ -1,12 +1,21 @@
 import React from "react";
 
+import "../styles/styles.css";
+
 import Inputs from "../components/Inputs";
 
 function WelcomePage() {
   return (
     <>
-      <h1>Welcome</h1>
-      <Inputs />
+      <div className="page">
+        <h1>Lets Get Quizzical!</h1>
+
+        <h2>
+          Welcome to the worlds 13th best Pub Quiz voted by citizens of Vatican
+          City!
+        </h2>
+        <Inputs />
+      </div>
     </>
   );
 }

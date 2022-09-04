@@ -1,0 +1,44 @@
+body {
+  background-image: url("https://banner2.cleanpng.com/20180219/sse/kisspng-root-beer-beer-glassware-clip-art-beer-cartoon-5a8aca9cb33286.153064341519045276734.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% -70%;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+h1:hover {
+  animation-name: rainbow;
+  animation-duration: 3000ms;
+}
+@keyframes rainbow {
+  0% {
+    color: yellow;
+  }
+  25% {
+    color: green;
+  }
+  50% {
+    color: blue;
+  }
+  75% {
+    color: red;
+  }
+}
+h2:hover {
+  animation-name: rainbow;
+  animation-duration: 3000ms;
+}
+@keyframes rainbow {
+  0% {
+    color: yellow;
+  }
+  25% {
+    color: green;
+  }
+  50% {
+    color: blue;
+  }
+  75% {
+    color: red;
+  }
+}
